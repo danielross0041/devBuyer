@@ -448,6 +448,7 @@
         $("#image-add").css("display","none");
         $("#generic-form")[0].reset();
         $("#record_id").attr("value","");
+        $(".eventbutton").css("display","")
         $("#addevent").modal("show")
         $("#attribute").click();
     })

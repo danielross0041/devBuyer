@@ -375,7 +375,7 @@ if (\Session::has('cart')) {
                 <li>
                     <div class="media">
                         <a>
-                            <img alt="megastore1" class="me-3" src="{{asset('web/assets/images/No-image-found.jpg')}}">
+                            <img alt="megastore1" class="me-3" src="{{asset('web/assets/images/no-img.jpeg')}}">
                         </a>
                         <div class="media-body">
                             <a>

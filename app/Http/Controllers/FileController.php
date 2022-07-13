@@ -24,7 +24,6 @@ class FileController extends Controller
      */
     
     public function file_generator(Request $request){
-        // dd($request->file);
         try{
             $this->validate($request,[
                 'file' =>'required|mimes:xls,xlsx'
@@ -38,8 +37,8 @@ class FileController extends Controller
                 $share = $request->file->move($destinationPath,$name);
                 $path = public_path($name);
                 $rows = \Excel::toArray(new SalesOrderExport, $path);
-                $check = $this->upload_sheet($rows);
-                if ($check) {
+                $flag = $this->upload_sheet($rows);
+                if ($flag) {
                     $msg = "File has been uploaded";
                     return redirect()->back()->with('message', $msg);
                 }
@@ -52,15 +51,12 @@ class FileController extends Controller
         }
     }
     public function upload_sheet($collection){
-        // dd($collection);
         try{
             foreach ($collection[0] as $key => $value) {
                 if ($key>0) {
-                    // dd($value);
                     $brand_id = $this->check_brand($value[1]);
                     $category_id = $this->check_category($value[11]);
                     $sub_category_id = $this->check_sub_category($value[12]);
-                    // dd($brand_id,$category_id,$sub_category_id);
                     $post_feilds['brand_id'] = $brand_id;
                     $post_feilds['category_id'] = $category_id;
                     $post_feilds['sub_category_id'] = $sub_category_id;
@@ -97,10 +93,10 @@ class FileController extends Controller
 
     public function check_brand($name)
     {
-        $check = brand::where('name',$name)->first();
+        $check_brand = brand::where('name',$name)->first();
         $slug = strtolower(str_replace(' ', '-', $name));
-        if ($check) {
-            return $check->id;
+        if ($check_brand) {
+            return $check_brand->id;
         } else{
             $create_brand = brand::create(array('name' => $name,'slug' => $slug));
             return $create_brand->id;
@@ -108,10 +104,10 @@ class FileController extends Controller
     }
     public function check_category($name)
     {
-        $check = category::where('name',$name)->first();
+        $check_category = category::where('name',$name)->first();
         $slug = strtolower(str_replace(' ', '-', $name));
-        if ($check) {
-            return $check->id;
+        if ($check_category) {
+            return $check_category->id;
         } else{
             $create_category = category::create(array('name' => $name,'slug' => $slug));
             return $create_category->id;
@@ -119,10 +115,10 @@ class FileController extends Controller
     }
     public function check_sub_category($name)
     {
-        $check = sub_category::where('name',$name)->first();
+        $check_sub_category = sub_category::where('name',$name)->first();
         $slug = strtolower(str_replace(' ', '-', $name));
-        if ($check) {
-            return $check->id;
+        if ($check_sub_category) {
+            return $check_sub_category->id;
         } else{
             $create_sub_category = sub_category::create(array('name' => $name,'slug' => $slug));
             return $create_sub_category->id;

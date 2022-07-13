@@ -117,7 +117,7 @@
                         <div class="row ">
                             <div class="col-lg-5">
                                 <div class="product-slick ">
-                                    <div><img src="{{asset('web/assets/images/No-image-found.jpg')}}" alt="" class="img-fluid  image_zoom_cls-0"></div>
+                                    <div><img src="{{asset('web/assets/images/no-img.jpeg')}}" alt="" class="img-fluid  image_zoom_cls-0"></div>
                                     <!-- <div><img src="{{asset('web/assets/images/product-sidebar/002.jpg')}}" alt="" class="img-fluid  image_zoom_cls-1"></div>
                                     <div><img src="{{asset('web/assets/images/product-sidebar/003.jpg')}}" alt="" class="img-fluid  image_zoom_cls-2"></div>
                                     <div><img src="{{asset('web/assets/images/product-sidebar/004.jpg')}}" alt="" class="img-fluid  image_zoom_cls-3"></div> -->

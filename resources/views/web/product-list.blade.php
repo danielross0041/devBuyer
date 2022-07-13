@@ -507,10 +507,10 @@
                                             <div class="product-box">
                                                 <div class="product-imgbox">
                                                     <div class="product-front">
-                                                        <a href="{{route('product_detail',$product->url)}}"> <img src="{{asset('web/assets/images/No-image-found.jpg')}}" class="img-fluid  " alt="product"> </a>
+                                                        <a href="{{route('product_detail',$product->url)}}"> <img src="{{asset('web/assets/images/no-img.jpeg')}}" class="img-fluid  " alt="product"> </a>
                                                     </div>
                                                     <div class="product-back">
-                                                        <a href="{{route('product_detail',$product->url)}}"> <img src="{{asset('web/assets/images/No-image-found.jpg')}}" class="img-fluid  " alt="product"> </a>
+                                                        <a href="{{route('product_detail',$product->url)}}"> <img src="{{asset('web/assets/images/no-img.jpeg')}}" class="img-fluid  " alt="product"> </a>
                                                     </div>
                                                 </div>
                                                 <div class="product-detail detail-center detail-inverse">

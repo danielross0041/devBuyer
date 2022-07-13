@@ -93,7 +93,9 @@
                                         <?php $total = 0; ?>
                                         @foreach($cart as $cart_arr)
                                         <?php
-                                        $product = App\Models\product::where('id',$cart_arr['product_id'])->first(); $total += $product->price*$cart_arr['quantity']; ?>
+                                        $product = App\Models\product::where('id',$cart_arr['product_id'])->first();
+                                        $total += $product->price*$cart_arr['quantity'];
+                                        ?>
                                         <li>{{$product->name}} × {{$cart_arr['quantity']}} <span>${{$product->price*$cart_arr['quantity']}}</span></li>
                                         @endforeach
                                     </ul>
@@ -171,8 +173,7 @@
                                     @endif
 
                                     <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
-                                        <input type="hidden" name="total" value="{{$total
-                                    }}">
+                                        <input type="hidden" name="total" value="{{$total}}">
                                         @csrf
 
                                         <div class="form-row row">
@@ -196,7 +197,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now (${{$total}})</button>
                                             </div>
                                         </div>
                                     </form>

@@ -51,7 +51,7 @@
                         ?>
                         <tr>
                             <td>
-                                <a href="javascript:void(0)"><img src="{{asset('web/assets/images/No-image-found.jpg')}}" alt="cart" class=" "></a>
+                                <a href="javascript:void(0)"><img src="{{asset('web/assets/images/no-img.jpeg')}}" alt="cart" class=" "></a>
                             </td>
                             <td><a href="javascript:void(0)">{{$product->name}}</a>
                                 <div class="mobile-cart-content">
